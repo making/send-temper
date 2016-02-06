@@ -23,3 +23,7 @@ Create `/var/send-temper/send-temper.conf`
 Configure with `visudo`
 
     <you>   ALL=NOPASSWD:<workspace>/temper/temper
+    
+Start
+    
+    $ sudo /etc/init.d/send-temper start
