@@ -6,12 +6,20 @@
     $ chown <you>:<you> /var/send-temper.jar
     $ sudo ln -s /etc/init.d/send-temper /var/send-temper.jar
 
-### /var/send-temper/send-temper.conf
+Build `temper`
+
+    $ sudo apt-get install libusb-dev
+    $ cd <workspace>
+    $ git clone https://github.com/bitplane/temper
+    $ cd temper
+    $ make
+
+Create `/var/send-temper/send-temper.conf`
 
     JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom
-    SEND_TEMPER_COMMAND=sudo,<PATH to temper>/temper
+    SEND_TEMPER_COMMAND=sudo,<workspace>/temper/temper
     SEND_TEMPER_TARGET=<URL to post temper data>
 
-### visudo
+Configure with `visudo`
 
-    <you>   ALL=NOPASSWD:<PATH to temper>/temper
+    <you>   ALL=NOPASSWD:<workspace>/temper/temper
